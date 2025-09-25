@@ -1,0 +1,13 @@
+flask
+sympy
+numpy
+plotly
+gunicorn
+requests
+mangum
+asgirefflask
+sympy
+numpy
+plotly
+gunicorn
+requests

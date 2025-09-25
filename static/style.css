@@ -1,0 +1,19 @@
+body{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: #f6f8fa; color:#111; margin:0; padding:20px }
+.container{ max-width:1100px; margin:0 auto }
+.controls{ display:flex; gap:8px; align-items:center; margin-bottom:12px }
+.controls input[type=text], .controls input[type=number]{ padding:6px; border:1px solid #ccc; border-radius:4px }
+.controls button{ padding:6px 10px; border-radius:6px; border: none; background:#2563eb; color:white; cursor:pointer }
+.main{ display:flex; gap:12px }
+.expr-list{ width:280px; background:white; padding:8px; border-radius:6px; border:1px solid #e5e7eb }
+.plot{ flex:1; min-height:540px; background:white; border-radius:6px; border:1px solid #e5e7eb }
+.expr-item{ display:flex; justify-content:space-between; gap:6px; padding:6px; border-bottom:1px solid #f3f4f6 }
+.expr-item button{ margin-left:6px; background:#ef4444 }
+
+.keyboard-panel{ display:flex; gap:12px; margin-top:14px }
+.keyboard{ background:white; padding:8px; border-radius:6px; border:1px solid #e5e7eb }
+.keyboard .row{ display:flex; gap:6px; margin-bottom:6px }
+.key{ padding:8px 10px; border-radius:6px; border:1px solid #d1d5db; background:#f9fafb; cursor:pointer }
+.alg-actions{ display:flex; gap:6px; margin-top:8px }
+.algebra{ background:white; padding:10px; border-radius:6px; border:1px solid #e5e7eb; width:360px }
+.alg-result{ min-height:40px; padding:6px; margin-top:8px; background:#fff7ed; border-radius:4px }
+.message{ margin-top:8px; font-weight:600 }

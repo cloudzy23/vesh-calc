@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>veshcalc</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>veshcalc</h1>
+
+      <div class="controls">
+        <input id="expr-input" placeholder="Enter expression (e.g. sin(x), x^2+3*x, y=cos(x), x=cos(t), y=sin(t))" />
+        <button id="add-btn">Add Expression</button>
+        <label>xmin <input id="xmin" type="number" value="-10" step="0.1" /></label>
+        <label>xmax <input id="xmax" type="number" value="10" step="0.1" /></label>
+        <button id="export-btn">Export PNG</button>
+      </div>
+      <div id="message" class="message"></div>
+
+      <div class="examples">
+        <strong>Examples:</strong>
+        <button class="example">sin(x)</button>
+        <button class="example">x^2 - 4</button>
+        <button class="example">y=cos(x)</button>
+        <button class="example">x=cos(t), y=sin(t)</button>
+        <button class="example">x^2+y^2=1</button>
+        <button class="example">z = x^2 + y^2</button>
+        <button class="example">r = 2*cos(t)</button>
+        <button class="example">x^2+y^2 &lt;= 4</button>
+      </div>
+
+      <div class="view-toggle">
+        <label><input id="view3d" type="checkbox" /> 3D View (when applicable)</label>
+      </div>
+
+      <div class="examples-bottom">
+        <h3>How examples look</h3>
+        <ul>
+          <li><strong>sin(x)</strong> — standard sine curve.</li>
+          <li><strong>x^2 - 4</strong> — parabola; roots at -2 and 2 are shown.</li>
+          <li><strong>y=cos(x)</strong> — same as cos(x).</li>
+          <li><strong>x=cos(t), y=sin(t)</strong> — unit circle (parametric).</li>
+          <li><strong>x^2+y^2=1</strong> — implicit circle using contour.</li>
+          <li><strong>z = x^2 + y^2</strong> — 3D surface (bowl).</li>
+          <li><strong>r = 2*cos(t)</strong> — polar cardioid/limacon style curve.</li>
+          <li><strong>x^2+y^2 &lt;= 4</strong> — shaded disk region (inequality).</li>
+        </ul>
+      </div>
+
+      <div class="main">
+        <div id="expr-list" class="expr-list"></div>
+        <div id="plot" class="plot"></div>
+      </div>
+
+      <div class="keyboard-panel">
+        <div class="keyboard">
+          <div class="row">
+            <button class="key">7</button><button class="key">8</button><button class="key">9</button><button class="key">/</button><button class="key">^</button>
+          </div>
+          <div class="row">
+            <button class="key">4</button><button class="key">5</button><button class="key">6</button><button class="key">*</button><button class="key">(</button>
+          </div>
+          <div class="row">
+            <button class="key">1</button><button class="key">2</button><button class="key">3</button><button class="key">-</button><button class="key">)</button>
+          </div>
+          <div class="row">
+            <button class="key">0</button><button class="key">.</button><button class="key">pi</button><button class="key">+</button><button class="key">=</button>
+          </div>
+          <div class="row">
+            <button class="key">sin(</button><button class="key">cos(</button><button class="key">tan(</button><button class="key">sqrt(</button><button id="kbd-clear" class="key">C</button>
+          </div>
+        </div>
+
+        <div class="algebra">
+          <h3>Simple Algebra</h3>
+          <input id="alg-input" placeholder="Enter expression in x (e.g., x^2-4)" />
+          <div class="alg-actions">
+            <button class="alg-btn" data-action="simplify">Simplify</button>
+            <button class="alg-btn" data-action="factor">Factor</button>
+            <button class="alg-btn" data-action="expand">Expand</button>
+            <button class="alg-btn" data-action="derivative">Derivative</button>
+            <button class="alg-btn" data-action="solve">Solve (for x)</button>
+          </div>
+          <div id="alg-result" class="alg-result"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
