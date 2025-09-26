@@ -281,22 +281,7 @@ def algebra():
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    # In production use a WSGI server (gunicorn). Keep debug disabled when
+    # running directly to avoid exposing Werkzeug debug pages.
+    app.run(host='0.0.0.0', port=port, debug=False)
 
-
-# --- Serverless adapter (ASGI + Mangum) -------------------------------------
-# Provide an ASGI adapter and a Mangum handler so the same app can be used
-# in serverless environments (e.g. Vercel using the Python builder that
-# supports ASGI-style handlers). We wrap creation in a try/except so local
-# development (without additional packages) still works.
-try:
-    from asgiref.wsgi import WsgiToAsgi
-    from mangum import Mangum
-
-    asgi_app = WsgiToAsgi(app)
-    # Mangum provides a Lambda-compatible handler for ASGI apps. We expose
-    # `handler` for platforms that expect a callable named `handler`.
-    handler = Mangum(asgi_app)
-except Exception:
-    asgi_app = None
-    handler = None
